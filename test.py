@@ -50,7 +50,7 @@ def mouseCallback(event, x, y, flags, null):             #x,y是图像坐标系�
         std = np.array([2, 4])
         u = np.array([heading, distance])
         predict(particles, u, std, dt=1.)
-        zs = (np.linalg.norm(landmarks - center, axis=1) + (np.random.randn(NL) * sensor_std_err))#计算每个地标到鼠标的距离
+        zs = (np.linalg.norm(landmarks - center, axis=1) + (np.random.randn(6) * sensor_std_err))#计算每个地标到鼠标的距离
         update(particles, weights, z=zs, R=50, landmarks=landmarks)
 
         indexes = systematic_resample(weights)
@@ -177,7 +177,7 @@ while (1):
     cv2.putText(img, "Landmarks", (30, 20), 1, 1.0, (255, 0, 0))
     cv2.putText(img, "Particles", (30, 40), 1, 1.0, (255, 255, 255))
     cv2.putText(img, "Robot Trajectory(Ground truth)", (30, 60), 1, 1.0, (0, 255, 0))
-    cv2.putText(img, "my var here (%d, %d)" % (c[0], c[1]), (30, 80), 1, 1.0, (0, 255, 0))
+    cv2.putText(img, "robot location(%d, %d)" % (c[0], c[1]), (30, 80), 1, 1.0, (0, 255, 0))
 
     drawLines(img, np.array([[10, 55], [25, 55]]), 0, 255, 0)
     #左上角的图标
