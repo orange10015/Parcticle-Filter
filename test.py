@@ -6,7 +6,7 @@ import scipy.stats
 np.set_printoptions(threshold=3)   #打印数量为3，其余以。。。代替
 np.set_printoptions(suppress=True)  #小数不需要用科学计数法
 import cv2
-···c=[0,0]···
+c=[0,0]
 
 
 def drawLines(img, points, r, g, b):
